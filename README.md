@@ -13,15 +13,15 @@ https://proj2-react.web.app
 Siga os passos abaixo para executar o projeto localmente:
 
 1. Instale as dependências do projeto:
-   npm install
-   npm run dev
-   O Vite fornecerá um endereço local, como http://localhost:5173/.
+- npm install
+- npm run dev
+- O Vite fornecerá um endereço local, como http://localhost:5173/.
 
-Passos para configurar e fazer o deploy
+## Passos para configurar e fazer o deploy
 
 2. Instale a CLI do Firebase
-    npm install -g firebase-tools
-    firebase login
-    firebase init
-    npm run build (para React com Vite, use dist).
-    firebase deploy
+- npm install -g firebase-tools
+- firebase login
+- firebase init
+- npm run build (para React com Vite, use dist).
+- firebase deploy
