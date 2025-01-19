@@ -1,99 +1,84 @@
 import React, { useState } from "react";
-import Question from "../../components/Question";
-import Options from "../../components/Options";
-import Score from "../../components/Score";
-
-const questions = [
-  {
-    question: "Qual é o principal ingrediente de uma omelete?",
-    options: ["Leite", "Ovos", "Farinha", "Arroz"],
-    answer: 1,
-  },
-  {
-    question: "Qual destes é um tempero comum em pizzas?",
-    options: ["Manjericão", "Canela", "Hortelã", "Cravo"],
-    answer: 0,
-  },
-  {
-    question: "Quantos minutos, em média, leva para assar um bolo?",
-    options: ["10 minutos", "30 minutos", "50 minutos", "1 hora e meia"],
-    answer: 2,
-  },
-];
+import Pergunta from "../../componente/Pergunta";
+import Opcoes from "../../componente/Opcoes";
+import Respostas from "../../componente/Respostas";
+import perguntas from "../../JSON/perguntas.json";
 
 const Home = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [answeredQuestions, setAnsweredQuestions] = useState(
-    Array(questions.length).fill(false)
+  const [perguntaAtual, setPerguntaAtual] = useState(0);
+  const [respostas, setRespostas] = useState(0);
+  const [perguntasRespondidas, setPerguntasRespondidas] = useState(
+    Array(perguntas.length).fill(false)
   ); // Armazena quais perguntas foram respondidas
-  const [showScore, setShowScore] = useState(false);
+  const [mostrarRespostas, setMostrarRespostas] = useState(false);
 
-  const handleAnswer = (index) => {
-    if (!answeredQuestions[currentQuestion]) {
-      if (index === questions[currentQuestion].answer) {
-        setScore(score + 1);
+  const lidarComResposta = (indice) => {
+    if (!perguntasRespondidas[perguntaAtual]) {
+      if (indice === perguntas[perguntaAtual].respostaCorreta) {
+        setRespostas(respostas + 1);
       }
 
       // Marca a questão como respondida
-      const updatedAnswers = [...answeredQuestions];
-      updatedAnswers[currentQuestion] = true;
-      setAnsweredQuestions(updatedAnswers);
+      const respostasAtualizadas = [...perguntasRespondidas];
+      respostasAtualizadas[perguntaAtual] = true;
+      setPerguntasRespondidas(respostasAtualizadas);
     }
   };
 
-  const handleFinishQuiz = () => {
-    if (answeredQuestions.every((answered) => answered)) {
-      setShowScore(true);
+  const finalizarQuiz = () => {
+    if (perguntasRespondidas.every((respondida) => respondida)) {
+      setMostrarRespostas(true);
     } else {
       alert("Por favor, responda todas as perguntas antes de finalizar.");
     }
   };
 
-  const handleRestart = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setShowScore(false);
-    setAnsweredQuestions(Array(questions.length).fill(false));
+  const reiniciarQuiz = () => {
+    setPerguntaAtual(0);
+    setRespostas(0);
+    setMostrarRespostas(false);
+    setPerguntasRespondidas(Array(perguntas.length).fill(false));
   };
 
-  const handleNavigation = (index) => {
-    setCurrentQuestion(index);
-    setShowScore(false);
+  const navegarParaPergunta = (indice) => {
+    setPerguntaAtual(indice);
+    setMostrarRespostas(false);
   };
 
   return (
     <div className="quiz-container">
       <h1>Quiz WEB1</h1>
       <div className="navigation-buttons">
-        {questions.map((_, index) => (
+        {perguntas.map((_, indice) => (
           <button
-            key={index}
+            key={indice}
             className={`nav-button ${
-              currentQuestion === index ? "active" : ""
+              perguntaAtual === indice ? "active" : ""
             }`}
-            onClick={() => handleNavigation(index)}
+            onClick={() => navegarParaPergunta(indice)}
           >
-            {index + 1}
+            {indice + 1}
           </button>
         ))}
       </div>
 
-      {showScore ? (
+      {mostrarRespostas ? (
         <div>
-          <Score score={score} total={questions.length} />
-          <button className="restart-button" onClick={handleRestart}>
+          <Respostas respostas={respostas} total={perguntas.length} />
+          <button className="restart-button" onClick={reiniciarQuiz}>
             Recomeçar
           </button>
         </div>
       ) : (
         <div>
-          <Question text={questions[currentQuestion].question} />
-          <Options
-            options={questions[currentQuestion].options}
-            onAnswer={handleAnswer}
+          <Pergunta texto={perguntas[perguntaAtual].pergunta} />
+          <Opcoes
+            opcoes={perguntas[perguntaAtual].opcoes}
+            aoResponder={lidarComResposta}
+            perguntaIndex={perguntaAtual}
+            respostasFinalizadas={mostrarRespostas}
           />
-          <button className="finish-button" onClick={handleFinishQuiz}>
+          <button className="finish-button" onClick={finalizarQuiz}>
             Finalizar Quiz
           </button>
         </div>

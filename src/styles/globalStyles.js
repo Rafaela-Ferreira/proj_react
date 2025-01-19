@@ -138,32 +138,33 @@ const GlobalStyle = createGlobalStyle`
     background-color: #249024;
   }
   .restart-button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-.restart-button:hover {
-  background-color: #c82333;
-}
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-  font-size: 1rem;
-  color: #2d4a22;
-}
+  .restart-button:hover {
+    background-color: #c82333;
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 1rem;
+    color: #2d4a22;
+  }
 
 `;
 

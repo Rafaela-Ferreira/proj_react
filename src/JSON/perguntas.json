@@ -1,0 +1,33 @@
+[
+    {
+      "pergunta": "Qual é o principal ingrediente de uma omelete?",
+      "opcoes": ["Leite", "Ovos", "Farinha", "Arroz"],
+      "respostaCorreta": 1
+    },
+    {
+      "pergunta": "Qual destes é um tempero comum em pizzas?",
+      "opcoes": ["Manjericão", "Canela", "Hortelã", "Cravo"],
+      "respostaCorreta": 0
+    },
+    {
+      "pergunta": "Quantos minutos, em média, leva para assar um bolo?",
+      "opcoes": ["10 minutos", "30 minutos", "50 minutos", "1 hora e meia"],
+      "respostaCorreta": 2
+    },
+    {
+        "pergunta": "Qual desses ingredientes é típico da culinária mexicana?",
+        "opcoes": ["Arroz", "Feijão", "Milho", "Batata"],
+        "respostaCorreta": 2
+      },
+      {
+        "pergunta": "O que é o 'al dente' no preparo de massas?",
+        "opcoes": ["Massas bem cozidas", "Massas muito duras", "Massas cozidas na hora certa", "Massas fritas"],
+        "respostaCorreta": 2
+      },
+      {
+        "pergunta": "Qual destes pratos é tipicamente italiano?",
+        "opcoes": ["Sushi", "Feijoada", "Spaghetti", "Hambúrguer"],
+        "respostaCorreta": 2
+      }
+  ]
+  

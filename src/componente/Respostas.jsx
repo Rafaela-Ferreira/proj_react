@@ -1,14 +1,14 @@
 import React from "react";
 
-const Score = ({ score, total }) => {
+const Respostas = ({ respostas, total }) => {
   return (
     <div>
       <h2>Seu Resultado</h2>
       <p>
-        Você acertou {score} de {total} perguntas!
+        Você acertou {respostas} de {total} perguntas!
       </p>
       <p>
-        {score === total
+        {respostas === total
           ? "Parabéns, você é um chef de primeira!"
           : "Continue praticando para se tornar um mestre da cozinha!"}
       </p>
@@ -16,4 +16,4 @@ const Score = ({ score, total }) => {
   );
 };
 
-export default Score;
+export default Respostas;
