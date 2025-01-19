@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Pergunta from "../../componente/Pergunta";
 import Opcoes from "../../componente/Opcoes";
 import Respostas from "../../componente/Respostas";
+
 import perguntas from "../../JSON/perguntas.json";
 
 const Home = () => {
@@ -12,13 +13,14 @@ const Home = () => {
   ); // Armazena quais perguntas foram respondidas
   const [mostrarRespostas, setMostrarRespostas] = useState(false);
 
+  //Verifica se a pergunta atual já foi respondida.
   const lidarComResposta = (indice) => {
     if (!perguntasRespondidas[perguntaAtual]) {
       if (indice === perguntas[perguntaAtual].respostaCorreta) {
-        setRespostas(respostas + 1);
+        setRespostas(respostas + 1); // Incrementa o número de respostas corretas
       }
 
-      // Marca a questão como respondida
+      // Marca a questão como respondida - Atualiza o array
       const respostasAtualizadas = [...perguntasRespondidas];
       respostasAtualizadas[perguntaAtual] = true;
       setPerguntasRespondidas(respostasAtualizadas);
@@ -26,8 +28,16 @@ const Home = () => {
   };
 
   const finalizarQuiz = () => {
-    if (perguntasRespondidas.every((respondida) => respondida)) {
-      setMostrarRespostas(true);
+    let todasRespondidas = true;
+    for (let i = 0; i < perguntasRespondidas.length; i++) {
+      if (!perguntasRespondidas[i]) {
+        todasRespondidas = false;
+        break;
+      }
+    }
+
+    if (todasRespondidas) {
+      setMostrarRespostas(true); // Exibe as respostas
     } else {
       alert("Por favor, responda todas as perguntas antes de finalizar.");
     }
@@ -48,6 +58,8 @@ const Home = () => {
   return (
     <div className="quiz-container">
       <h1>Quiz WEB1</h1>
+
+      {/* Botões de navegação */}
       <div className="navigation-buttons">
         {perguntas.map((_, indice) => (
           <button
@@ -62,6 +74,7 @@ const Home = () => {
         ))}
       </div>
 
+      {/* Exibição do conteúdo */}
       {mostrarRespostas ? (
         <div>
           <Respostas respostas={respostas} total={perguntas.length} />
@@ -69,6 +82,7 @@ const Home = () => {
             Recomeçar
           </button>
         </div>
+
       ) : (
         <div>
           <Pergunta texto={perguntas[perguntaAtual].pergunta} />

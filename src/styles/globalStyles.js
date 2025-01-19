@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .nav-button {
-    background-color: #2d4a22;
+    background-color:rgb(73, 104, 61);
     color: white;
     padding: 10px;
     border: none;
@@ -83,49 +83,27 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .nav-button.active {
-    background-color: #28a745;
+    background-color:rgb(154, 212, 78);
+    color: black;
   }
 
   .nav-button:hover {
-    background-color: #218838;
+    background-color:rgb(77, 185, 100);
   }
-
+  
   .question-container {
     margin-bottom: 20px;
   }
 
-  .option-button {
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #28a745;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
+  
 
-  .option-button:hover {
-    background-color: #eafaf1;
-    border-color: #1e8449;
-  }
+  
 
-  .option-button:active {
-    background-color: #d4edda;
-  }
+  
 
-  .score-container {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1e8449;
-    margin-top: 20px;
-  }
 
-  .submit-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #2c8f2c;
+  .finish-button{
+    background-color:rgb(53, 120, 220);
     color: white;
     border: none;
     border-radius: 5px;
@@ -133,10 +111,10 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  .submit-button:hover {
-    background-color: #249024;
+  .finish-button:hover{
+    background-color:rgb(40, 67, 107);
   }
+
   .restart-button {
     margin-top: 20px;
     padding: 12px 20px;
@@ -165,7 +143,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     color: #2d4a22;
   }
-
 `;
 
 export default GlobalStyle;
